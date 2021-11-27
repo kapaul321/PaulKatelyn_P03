@@ -21,8 +21,7 @@ public class animationStateController : MonoBehaviour
         bool backwardPressed = Input.GetKey("s");
         bool leftPressed = Input.GetKey("a");
         bool rightPressed = Input.GetKey("d");
-        bool spacePressed = Input.GetKey("space");
-
+ 
         //walk forwards
         //player presses W key
         if (forwardPressed)
@@ -36,6 +35,7 @@ public class animationStateController : MonoBehaviour
             //set isWalking to false
             animator.SetBool("isWalking", false);
         }
+
 
         //walk backwards
         //player presses S key
@@ -58,7 +58,7 @@ public class animationStateController : MonoBehaviour
             //set isWalking to true
             animator.SetBool("isWalkingLeft", true);
         }
-        //player releases W key
+        //player releases A key
         if (!leftPressed)
         {
             //set isWalking to false
@@ -72,7 +72,7 @@ public class animationStateController : MonoBehaviour
             //set isWalking to true
             animator.SetBool("isWalkingRight", true);
         }
-        //player releases W key
+        //player releases D key
         if (!rightPressed)
         {
             //set isWalking to false
