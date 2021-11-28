@@ -22,6 +22,7 @@ public class ThirdPersonMovement : MonoBehaviour
     bool isGrounded;
 
     public ParticleSystem splashdown;
+    public GameObject splashdownMarking;
 
     // Update is called once per frame
     void Update()
@@ -41,7 +42,6 @@ public class ThirdPersonMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -64,5 +64,8 @@ public class ThirdPersonMovement : MonoBehaviour
     public void SplashdownDelay()
     {
         splashdown.Play();
+
+        splashdownMarking.transform.position = splashdown.transform.position + new Vector3(0, (float)-0.55, 0);
+        splashdownMarking.SetActive(true);
     }
 }
