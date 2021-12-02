@@ -24,6 +24,9 @@ public class ThirdPersonMovement : MonoBehaviour
     public ParticleSystem splashdown;
     public GameObject splashdownMarking;
 
+    public AudioSource jumpSound;
+    public AudioSource splashdownSound;
+
     // Update is called once per frame
     void Update()
     {
@@ -46,6 +49,7 @@ public class ThirdPersonMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            jumpSound.Play();
 
             Invoke("SplashdownDelay", (float)1.75);
         }
@@ -64,6 +68,7 @@ public class ThirdPersonMovement : MonoBehaviour
     public void SplashdownDelay()
     {
         splashdown.Play();
+        splashdownSound.Play();
 
         splashdownMarking.transform.position = splashdown.transform.position + new Vector3(0, (float)-0.55, 0);
         splashdownMarking.SetActive(true);
